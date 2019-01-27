@@ -1,0 +1,10 @@
+name: TNTRun
+main: TNTRun\Main
+version: 1.0.0
+api: 3.0.0
+author: BeckenPlayZMCPE Fixed piyushbest
+commands:
+    tr:
+        usage: /tr <sub-command>
+        description: All Commands
+        permission: TNTRun.command
