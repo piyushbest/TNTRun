@@ -35,7 +35,7 @@ class Main extends PluginBase implements Listener {
         $this->prefix = $this->getConfig()->get("prefix");
         $this->getScheduler()->scheduleRepeatingTask(new GameSender($this), 20);
         $this->getScheduler()->scheduleRepeatingTask(new RefreshSigns($this), 20);
-        foreach $this->getConfig()->getNested("arenas") as $a) {
+        foreach ($this->getConfig()->getNested("arenas") as $a) {
             if (!$this->getServer()->getLevelByName($a["name"]) instanceof Level) {
                 $this->deleteDirectory($this->getServer()->getDataPath() . "/worlds/" . $a["name"]);
                 $this->copymap($this->getDataFolder() . "/maps/" . $a["name"], $this->getServer()->getDataPath() . "/worlds/" . $a["name"]);
