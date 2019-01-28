@@ -50,7 +50,7 @@ class GameSender extends TNTRunTask {
                         $config->save();
                     } else {
                         if ((count($playersArena) === 1) && ($timeToStart === 0)) {
-                            foreach ($playersArena as $pl) {
+                            foreach($playersArena as $pl) {
                                 $level = $this->plugin->getServer()->getDefaultLevel();
                                 $tiles = $level->getTiles();
                                 foreach ($tiles as $t) {
@@ -116,7 +116,7 @@ class GameSender extends TNTRunTask {
                                         }
                                     }
                                 }
-                                foreach ($playersArena as $pl) {
+                                foreach($playersArena as $pl) {
                                     $pl->sendPopup(TextFormat::GRAY . TextFormat::BOLD . "> " . TextFormat::RESET . TextFormat::AQUA . $timeToStart . TextFormat::GOLD . "s left" . TextFormat::GRAY . TextFormat::BOLD . " <");
                                     $this->plugin->getServer()->getScheduler()->scheduleDelayedTask(new sendPopupAgain($this->plugin, TextFormat::GRAY . TextFormat::BOLD . "> " . TextFormat::RESET . TextFormat::AQUA . $timeToStart . TextFormat::GOLD . "s left" . TextFormat::GRAY . TextFormat::BOLD . " <", $pl), 10);
                                 }
