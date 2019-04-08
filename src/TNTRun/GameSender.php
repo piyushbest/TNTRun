@@ -17,7 +17,6 @@ class GameSender extends TNTRunTask {
 
     public function __construct($plugin) {
         $this->plugin = $plugin;
-        parent::__construct($plugin);
         $this->prefix = $this->plugin->getConfig()->get("prefix");
     }
 
