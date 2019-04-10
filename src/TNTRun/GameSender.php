@@ -85,7 +85,7 @@ class GameSender extends TNTRunTask {
                         if ((count($playersArena) > 1) && ($timeToStart === 0)) {
                             foreach ($playersArena as $pl) {
                                 $pl->sendPopup(TextFormat::GRAY . TextFormat::BOLD . "> " . TextFormat::RESET . TextFormat::AQUA . count($playersArena) . TextFormat::GOLD . " Players left" . TextFormat::GRAY . TextFormat::BOLD . " <");
-                                $this->plugin->getServer()->getScheduler()->scheduleDelayedTask(new sendPopupAgain($this->plugin, TextFormat::GRAY . TextFormat::BOLD . "> " . TextFormat::RESET . TextFormat::AQUA . count($playersArena) . TextFormat::GOLD . " Players left" . TextFormat::GRAY . TextFormat::BOLD . " <", $pl), 10);
+                                $this->plugin->getScheduler()->scheduleDelayedTask(new sendPopupAgain($this->plugin, TextFormat::GRAY . TextFormat::BOLD . "> " . TextFormat::RESET . TextFormat::AQUA . count($playersArena) . TextFormat::GOLD . " Players left" . TextFormat::GRAY . TextFormat::BOLD . " <", $pl), 10);
                             }
                         }
                         if (count($playersArena) >= $minPlayers) {
@@ -117,7 +117,7 @@ class GameSender extends TNTRunTask {
                                 }
                                 foreach($playersArena as $pl) {
                                     $pl->sendPopup(TextFormat::GRAY . TextFormat::BOLD . "> " . TextFormat::RESET . TextFormat::AQUA . $timeToStart . TextFormat::GOLD . "s left" . TextFormat::GRAY . TextFormat::BOLD . " <");
-                                    $this->plugin->getServer()->getScheduler()->scheduleDelayedTask(new sendPopupAgain($this->plugin, TextFormat::GRAY . TextFormat::BOLD . "> " . TextFormat::RESET . TextFormat::AQUA . $timeToStart . TextFormat::GOLD . "s left" . TextFormat::GRAY . TextFormat::BOLD . " <", $pl), 10);
+                                    $this->plugin->getScheduler()->scheduleDelayedTask(new sendPopupAgain($this->plugin, TextFormat::GRAY . TextFormat::BOLD . "> " . TextFormat::RESET . TextFormat::AQUA . $timeToStart . TextFormat::GOLD . "s left" . TextFormat::GRAY . TextFormat::BOLD . " <", $pl), 10);
                                 }
                                 $config->setNested("arenas." . $name . ".time", $config->get("time"));
                                 $config->save();
