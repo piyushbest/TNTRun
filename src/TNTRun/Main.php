@@ -72,6 +72,8 @@ class Main extends PluginBase implements Listener {
 
     public function onQuit(PlayerQuitEvent $event) {
         $player = $event->getPlayer();
+        $player->setGamemode($player::SURVIVAL);
+        $player->getInventory()->clearAll(true);
         if ($this->getConfig()->getNested("arenas." . $player->getLevel()->getFolderName() . ".name") === $player->getLevel()->getFolderName()) {
             foreach ($player->getLevel()->getPlayers() as $pl) {
                 $pl->sendMessage(TextFormat::DARK_GRAY . TextFormat::BOLD . "[" . TextFormat::DARK_RED . "-" . TextFormat::DARK_GRAY . "] " . TextFormat::RESET . TextFormat::GOLD . $player->getName() . " left the game.");
@@ -94,8 +96,14 @@ class Main extends PluginBase implements Listener {
 
     public function onJoin(PlayerJoinEvent $event) {
         $player = $event->getPlayer();
-        $player->getInventory()->clearAll();
         $player->removeAllEffects();
+        $player->getInventory()->clearAll();
+        $player->getArmorInventory()->clearAll();
+        $player->getCursorInventory()->clearAll();
+
+        $player->setGamemode($player::ADVENTURE);
+        $player->setHealth(20);
+        $player->setFood(20);
         $this->getScheduler()->scheduleDelayedTask(new sendBack($this, $player), 2);
         $spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn();
         $player->setSpawn(new Position($spawn->getX(), $spawn->getY(), $spawn->getZ(), $this->getServer()->getDefaultLevel()));
