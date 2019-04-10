@@ -1,6 +1,6 @@
 <?php
 
-namespace TNTRun;
+namespace BeckenPlayZMCPE\TNTRun;
 
 use pocketmine\Player;
 use pocketmine\level\Position;
