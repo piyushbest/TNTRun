@@ -1,6 +1,6 @@
 <?php
 
-namespace BeckenPlayZMCPE\TNTRun;
+namespace TNTRun;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
