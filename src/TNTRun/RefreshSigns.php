@@ -1,6 +1,6 @@
 <?php
 
-namespace TNTRun;
+namespace BeckenPlayZMCPE\TNTRun;
 
 use pocketmine\tile\Sign;
 use pocketmine\utils\Config;
