@@ -116,7 +116,6 @@ class Main extends PluginBase implements Listener {
 
         $player->setImmobile(true);
         $player->setAllowFlight(false);
-        $player->setFly(false);
         $player->setScale(1);
 
         $this->getScheduler()->scheduleDelayedTask(new sendBack($this, $player), 2);
