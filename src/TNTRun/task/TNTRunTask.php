@@ -1,6 +1,6 @@
 <?php
 
-namespace TNTRun;
+namespace TNTRun\task;
 
 use pocketmine\plugin\Plugin;
 use pocketmine\scheduler\Task;

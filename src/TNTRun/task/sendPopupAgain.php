@@ -1,6 +1,6 @@
 <?php
 
-namespace TNTRun;
+namespace TNTRun\task;
 
 use pocketmine\tile\Sign;
 use pocketmine\utils\Config;

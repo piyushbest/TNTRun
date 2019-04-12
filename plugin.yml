@@ -1,7 +1,7 @@
 name: TNTRun
 main: TNTRun\Main
-version: 1.0.0
-api: [3.5.6, 3.5.7]
+version: 1.1.0
+api: 3.7.0
 author: BeckenPlayZMCPE
 commands:
     tr:

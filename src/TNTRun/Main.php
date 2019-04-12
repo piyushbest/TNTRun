@@ -19,6 +19,10 @@ use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\block\BlockBreakEvent;
 
+use TNTRun\task\GameSender;
+use TNTRun\task\RefreshSigns;
+use TNTRun\task;
+
 class Main extends PluginBase implements Listener {
 
     public $mode = 0;
