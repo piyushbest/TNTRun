@@ -116,11 +116,11 @@ class Main extends PluginBase implements Listener {
 
         $player->setImmobile(true);
         $player->setAllowFlight(false);
+        $player->setFly(false);
         $player->setScale(1);
 
         $this->getScheduler()->scheduleDelayedTask(new sendBack($this, $player), 2);
         $spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn();
-        $inv->setItem(8, Item::get(Item::BED)->setCustomName("§r§7Leave arena"));
         $player->setSpawn(new Position($spawn->getX(), $spawn->getY(), $spawn->getZ(), $this->getServer()->getDefaultLevel()));
     }
 
