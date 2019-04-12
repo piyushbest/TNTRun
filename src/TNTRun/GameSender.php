@@ -61,12 +61,24 @@ class GameSender extends TNTRunTask {
                                         }
                                     }
                                 }
-                                $pl->sendMessage($this->prefix . TextFormat::GREEN . " You won!");
+                                $this->broadcastMessage($this->prefix . TextFormat::GREEN . "$player win this game!");
                                 $spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
                                 $this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
                                 if ($pl->isOnline()) {
                                     $pl->teleport($spawn, 0, 0);
-                                    $pl->getInventory()->clearAll();
+                                $player->removeAllEffects();
+
+        $player->getInventory()->clearAll();
+        $player->getArmorInventory()->clearAll();
+        $player->getCursorInventory()->clearAll();
+
+        $player->setGamemode($player::SURVIVAl);
+        $player->setHealth(20);
+        $player->setFood(20);
+
+        $player->setImmobile(true);
+        $player->setAllowFlight(false);
+        $player->setScale(1);
                                 }
 
                                 $this->plugin->getServer()->unloadLevel($levelArena);

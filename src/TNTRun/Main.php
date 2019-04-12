@@ -72,8 +72,16 @@ class Main extends PluginBase implements Listener {
 
     public function onQuit(PlayerQuitEvent $event) {
         $player = $event->getPlayer();
+       
+        $player->getInventory()->clearAll();
+        $player->getArmorInventory()->clearAll();
+        $player->getCursorInventory()->clearAll();
+
         $player->setGamemode($player::SURVIVAL);
-        $player->getInventory()->clearAll(true);
+        $player->setHealth(20);
+        $player->setFood(20);
+
+
         if ($this->getConfig()->getNested("arenas." . $player->getLevel()->getFolderName() . ".name") === $player->getLevel()->getFolderName()) {
             foreach ($player->getLevel()->getPlayers() as $pl) {
                 $pl->sendMessage(TextFormat::DARK_GRAY . TextFormat::BOLD . "[" . TextFormat::DARK_RED . "-" . TextFormat::DARK_GRAY . "] " . TextFormat::RESET . TextFormat::GOLD . $player->getName() . " left the game.");
@@ -97,6 +105,7 @@ class Main extends PluginBase implements Listener {
     public function onJoin(PlayerJoinEvent $event) {
         $player = $event->getPlayer();
         $player->removeAllEffects();
+
         $player->getInventory()->clearAll();
         $player->getArmorInventory()->clearAll();
         $player->getCursorInventory()->clearAll();
@@ -104,8 +113,14 @@ class Main extends PluginBase implements Listener {
         $player->setGamemode($player::ADVENTURE);
         $player->setHealth(20);
         $player->setFood(20);
+
+        $player->setImmobile(true);
+        $player->setAllowFlight(false);
+        $player->setScale(1);
+
         $this->getScheduler()->scheduleDelayedTask(new sendBack($this, $player), 2);
         $spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn();
+        $inv->setItem(8, Item::get(Item::BED)->setCustomName("§r§7Leave arena"));
         $player->setSpawn(new Position($spawn->getX(), $spawn->getY(), $spawn->getZ(), $this->getServer()->getDefaultLevel()));
     }
 
@@ -224,6 +239,15 @@ class Main extends PluginBase implements Listener {
     public function onInteract(PlayerInteractEvent $event) {
         $player = $event->getPlayer();
         $block = $event->getBlock();
+                if($this->inGame($player, true) && $event->getAction() === $event::RIGHT_CLICK_AIR) {
+            switch ($event->getPlayer()->getInventory()->getItemInHand()->getId()) {
+                case Item::BED:
+                    $this->disconnectPlayer($player left the game), false, false, true);
+                    break;
+                    
+              return;
+           }
+     }
         $sign = $player->getLevel()->getTile($block);
         if ($sign instanceof Sign) {
             if ($this->signregister === false) {
