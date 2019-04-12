@@ -117,6 +117,7 @@ class Main extends PluginBase implements Listener {
         $player->setImmobile(true);
         $player->setAllowFlight(false);
         $player->setScale(1);
+        $player->setFlying(false);
 
         $this->getScheduler()->scheduleDelayedTask(new sendBack($this, $player), 2);
         $spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn();
