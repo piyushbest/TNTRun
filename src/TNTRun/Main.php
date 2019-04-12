@@ -242,7 +242,7 @@ class Main extends PluginBase implements Listener {
                 if($this->inGame($player, true) && $event->getAction() === $event::RIGHT_CLICK_AIR) {
             switch ($event->getPlayer()->getInventory()->getItemInHand()->getId()) {
                 case Item::BED:
-                    $this->disconnectPlayer($player left the game), false, false, true);
+                    $this->disconnectPlayer($player (left the game), false, false, true);
                     break;
                     
               return;
