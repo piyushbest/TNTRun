@@ -291,7 +291,7 @@ class Main extends PluginBase implements Listener {
             $player->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn(), 0, 0);
             $this->mode = 0;
         }
-    }
+    
 
     public function copymap($src, $dst) {
         $dir = opendir($src);
