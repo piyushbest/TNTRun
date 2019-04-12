@@ -1,10 +1,10 @@
 name: TNTRun
 main: TNTRun\Main
-version: 1.0.0
-api: [3.5.6, 3.5.7]
+version: 1.1.0
+api: [3.5.6, 3.5.7, 3.6.0, 3.7.0]
 author: BeckenPlayZMCPE
 commands:
     tr:
-        usage: /tr <sub-command>
+        usage: /tr addarena
         description: All Commands
         permission: TNTRun.command
