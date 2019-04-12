@@ -239,16 +239,7 @@ class Main extends PluginBase implements Listener {
     public function onInteract(PlayerInteractEvent $event) {
         $player = $event->getPlayer();
         $block = $event->getBlock();
-                if($this->inGame($player, true) && $event->getAction() === $event::RIGHT_CLICK_AIR) {
-            switch ($event->getPlayer()->getInventory()->getItemInHand()->getId()) {
-                case Item::BED:
-                    $this->disconnectPlayer(. $player->getName() . ("left the game"), false, false, true);
-                    break;
-                    
-           }
-           return;
-     }
-        $sign = $player->getLevel()->getTile($block);
+    $sign = $player->getLevel()->getTile($block);
         if ($sign instanceof Sign) {
             if ($this->signregister === false) {
                 $text = $sign->getText();
