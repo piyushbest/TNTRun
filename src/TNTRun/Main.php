@@ -50,15 +50,11 @@ class Main extends PluginBase implements Listener {
     }
 
     public function onBlockBreak(BlockBreakEvent $event) {
-        if (!$event->getPlayer()->isOp()) {
-            $event->setCancelled(true);
-        }
+        
     }
 
     public function onBlockPlace(BlockPlaceEvent $event) {
-        if (!$event->getPlayer()->isOp()) {
-            $event->setCancelled(true);
-        }
+      
     }
 
     public function onDamage(EntityDamageEvent $event) {
