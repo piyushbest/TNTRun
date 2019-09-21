@@ -61,7 +61,6 @@ class GameSender extends TNTRunTask {
                                         }
                                     }
                                 }
-                                $pl->sendMessage($this->prefix . TextFormat::GREEN . "U winner congratulations");
                                 $spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
                                 $this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
                                 if ($pl->isOnline()) {
