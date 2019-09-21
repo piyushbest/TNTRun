@@ -106,7 +106,7 @@ class Main extends PluginBase implements Listener {
         $player->getArmorInventory()->clearAll();
         $player->getCursorInventory()->clearAll();
 
-        $player->setGamemode($player::ADVENTURE);
+        $player->setGamemode($player::SURVIVAL);
         $player->setHealth(20);
         $player->setFood(20);
 
@@ -120,11 +120,7 @@ class Main extends PluginBase implements Listener {
         $player->setSpawn(new Position($spawn->getX(), $spawn->getY(), $spawn->getZ(), $this->getServer()->getDefaultLevel()));
     }
 
-    public function onRespawn(PlayerRespawnEvent $event) {
-        $player = $event->getPlayer();
-        $spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn();
-        $player->setSpawn(new Position($spawn->getX(), $spawn->getY(), $spawn->getZ(), $this->getServer()->getDefaultLevel()));
-    }
+    public function onRespawn(PlayerRespawnEvent $event) {}
 
     public function onMove(PlayerMoveEvent $event) {
         $player = $event->getPlayer();
@@ -163,9 +159,6 @@ class Main extends PluginBase implements Listener {
                         }
                     }
                 } else {
-                    $spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn();
-                    $this->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
-                    $player->teleport($spawn, 0, 0);
                 }
             }
             if (($this->getConfig()->getNested("arenas." . $player->getLevel()->getFolderName() . ".time")) <= ($this->getConfig()->get("time") - 10)) {
