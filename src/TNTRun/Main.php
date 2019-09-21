@@ -153,9 +153,6 @@ class Main extends PluginBase implements Listener {
                             $pl->teleport($spawn, 0, 0);
                             $bug_fix2++;
                         } else {
-                            $spawn = $pl->getLevel()->getSafeSpawn();
-                            $this->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
-                            $pl->teleport($spawn, 0, 0);
                         }
                     }
                 } else {
